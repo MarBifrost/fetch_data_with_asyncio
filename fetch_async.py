@@ -5,15 +5,13 @@ import aiofiles
 import time
 
 
-start_time = time.time()
-
-
 async def fetch(url, session):
     async with session.get(url) as resp:
         return await resp.json()
 
 
 async def main():
+    start_time = time.time()
     tasks = []
     async with aiohttp.ClientSession() as session:
         for post_id in range(1, 78):
